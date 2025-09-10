@@ -1,3 +1,7 @@
+## 🧴 알아두면 좋은 정보
+
+---
+
 ## 1. **WAS (Web Application Server) 관련 개념**
 
 ### 1.1 **톰캣 (Tomcat)**
