@@ -1,149 +1,116 @@
-리눅스 마스터 2급 2차 준비
-1
-리눅스 마스터 2급 2차 준비
-출처: https://worlf.tistory.com/69
-추가정리: https://blog.naver.com/2hey9/223494384118
-💡 ✅ - 24년 2회차 기출로 나왔던 개념(기억나는 것만)
-Q. -  cbt 기출 풀이 중 초면이었던 문제 정리
-1과목 - 리눅스 운영 및 관리
-사운드, 스캐너, 프린터
-OSS ✅
-리눅스 유닉스 계열 사운드 카드 지원 시스템
-ALSA (Advanced Linux Sound Architecture) ✅
-사운드 카드용 장치 드라이버
-사운드 카드를 자동으로 구성하게 하고 사운드 장치를 관리하는 것이 목적
-alsactl
-명령어로 사운드 카드를 컨트롤
-SANE ✅
-스캐너, 비디오 캠 등 이미지 관련 API  X윈도 기반의 GTK 라이브러리가 언급되는 스캐
-너의 경우 XSANE
-CUPS 
-애플이 개발한 프린팅 시스템
-LPRng
-버클리 프린팅 시스템
-BSD 계열
+#### **사운드, 스캐너, 프린터**
 
-리눅스 마스터 2급 2차 준비
-2
-System V
-Ip: 프린터 작업요청
-Ipstat: 프린터 큐 상태 확인(출력)
-cancel: 프린트 작업 취소
-BSD
-lpr: 프린터 작업요청
-lpq: 프린터 큐 상태확인(출력)✅
-lprm: 프린트 대기작업 삭제
-lpc: 프린터 컨트롤 프로그램
-IPP
-인터넷 원격 프린팅
-Mirroring
-디스크에 에러 발생 시 데이터의 손실을 막기 위해 추가로 하나 이상의 장치에 중복 저장하
-는 기술
-Volume Group
-물리 볼륨을 합쳐서 하나의 물리적 그룹으로 만드는 것
-Striping
-연속된 데이터를 여러 디스크에 나눠 저장
-LVM (Logical Volume Manager)
-리눅스의 저장 공간을 효율적이고 유연하게 관리하기 위한 커널의 한 부분
-� 유연한 용량 조절 (쉽게 용량 증설 가능)
-� 크기 조절이 가능한 storage pool
-� 편의에 따른 장치 이름 지정
-� disk struping, mirror volume 등을 제공함.
-PE  PV에서 나누어 사용하는 일종의 블록, 4MB로 할당✅
-PV  디스크를 LVM에서 사용할 수 있게 변환하는 작업
-VG  PV가 모여 만들어진 그룹
+* **OSS**: 리눅스/유닉스 계열 사운드 카드 지원 시스템
+* **ALSA (Advanced Linux Sound Architecture)** ✅: 사운드 카드용 장치 드라이버, 사운드 장치를 관리
+* **alsactl**: 사운드 카드를 제어하는 명령어
+* **SANE** ✅: 스캐너, 비디오 카메라 등의 이미지 관련 API (GTK 라이브러리와 연관, XSANE 사용)
+* **CUPS**: 애플이 개발한 프린팅 시스템
+* **LPRng**: BSD 계열의 프린팅 시스템
 
-리눅스 마스터 2급 2차 준비
-3
-LV  VG에서 사용자가 필요한 만큼 할당돼서 만들어지는 공간(파티션)
-LE  LV가 나누어진 일정한 크기의 블록 , PE와 1:1 대응
-디스크 종류
-RAID5
-최소 3개의 저장 장치(디스크)를 필요로 하고 1개(약 33.3%)의 패리티를 사용
-RAID6
-최소 4개의 저장 장치를 필요로 하고 2개의 패리티를 사용
-스트라이핑방식 / RAID5를 확장한 것
-✅ RAID 디스크 (RAID-0,1,3,6) 중 패리티를 한 개 사용하는 디스크는?
-RAID-3
-RPM 명령어
-rpm -e sendmail ✅
-sendmail 패키지를 제거하는 명령
-rpm -i sendmail
-sendmail 패키지를 설치
-rpm U sendmail
-기존 패키지 업그레이드, 없을 경우 i랑 같음
-rpm F sendmail
-이전 버전이 설치된 경우 설치 및 업그레이드
-rpm V sendmail
-파일이 침입자에 의해 권한 획득이나 변조가 되었는지 검사
-rpm -f 파일명
-지정된 파일이 포함된 패키지 목록 출력
-—nodeps
-의존성 무시하고 명령 실행하는 옵션 # rpm -e sendmail —nodeps
-파일 압축 옵션
-# tar (  ) linux-5.13.4.tar.xz
+---
 
-리눅스 마스터 2급 2차 준비
-4
-맨뒤에
-bz = j
-xz  J
-gz = z
-compress  Z ✅
-압축 효율성: xz > bz2  gz  J  j > z 로 외우기)
-# tar xvf backup.tar (  ) /usr/local/src
-ex) 묶여있는 tar 파일 /usr/local/scr 디렉터리에 푸는 과정이다. 괄호 안에 들어갈것은?
--C
-c : 파일이나 디렉터리를 묶는것
-C  디렉터리 변경 (푸는것)
-#tar () text.tar
-ex) 묶여있는 tar 파일을 해제하는 과정이다. 괄호 안에 들어갈 것은?
-xvf - tar 파일 해제
-cvf - tar 파일 생성 ✅
-rvf - tar 파일 제거
-tvf - tar 파일 내용 확인
-컴파일순서
-configure > make(file) > make install
-ex) 소스 설치 과정 중에서 configure 작업 후에 관련 정보가 저장되는 파일명은?
-Makefile  ✅
-[root@www httpd-2.4.46# make (    )
-configure 관련 파일들을 제거할 때
-make clean : 이전에 컴파일했던 내용들을 삭제
-make disclean : automake에서 분류되지 않은 나머지파일 삭제
-Q. 소스파일을 이요한 설치방법이 다른 하나는?
-MYSQL  - cmake
+#### **프린터 관련 명령어**
 
-리눅스 마스터 2급 2차 준비
-5
-YUM 명령어
-yum list
-전체 패키지에 대한 정보 출력
-yum history
-패키지 설치, 삭제 등 작업 이력 확인 (작업한 목록 확인)
-yum grouplist
-그룹별 정보를 얻고 싶을 때 사용하는 명령
-yum groupinfo
-그룹명과 관련된 패키지의 정보를 보여줌
-Q. 데비안 운영체제의 패키지 파일 형식은?
-.deb  ✅
-Q. apt-get 명령어 중 패키지를 제거하는 명령어는?
-remove  ✅
-zypper
-SUSE 리눅스에서 사용하는 패키지 관리 도구
-YaST
-수세 패키지 관리 도구
-rpm
-Redhat Package Manager = 레드햇 계열
-yum
-Yellowdog update modified  RPM 계열  = 레드햇 계열
-dpkg 
-download package = 데비안 계열
-apt-get
-데비안 계열 패키지 관리 도구
-pacman
-아치 리눅스
-Q. 이중 온라인 X 오프라인 기반 패키지 관리 도구는?
-rpm, YaST, dpkg  ✅
+* **System V**:
+
+  * `Ip`: 프린터 작업 요청
+  * `Ipstat`: 프린터 큐 상태 확인
+  * `cancel`: 프린트 작업 취소
+
+* **BSD**:
+
+  * `lpr`: 프린터 작업 요청
+  * `lpq`: 프린터 큐 상태 확인 ✅
+  * `lprm`: 프린트 대기 작업 삭제
+  * `lpc`: 프린터 제어 프로그램
+
+* **IPP (Internet Printing Protocol)**: 인터넷 원격 프린팅
+
+---
+
+#### **디스크 관리 및 RAID**
+
+* **Mirroring**: 디스크에 에러 발생 시 데이터 손실 방지를 위해 추가 장치에 중복 저장
+* **Volume Group (VG)**: 물리적 볼륨(PV)을 묶어 하나의 그룹으로 생성
+* **Striping**: 데이터를 여러 디스크에 분산 저장
+* **LVM (Logical Volume Manager)**: 리눅스의 저장 공간을 효율적으로 관리하는 커널의 부분
+
+  * **PE (Physical Extent)**: PV에서 나누어 사용하는 블록 (4MB 할당) ✅
+  * **PV (Physical Volume)**: LVM에서 사용할 수 있도록 디스크 변환
+  * **VG (Volume Group)**: PV들이 묶여 만들어진 그룹
+  * **LV (Logical Volume)**: VG에서 할당된 파티션
+  * **LE (Logical Extent)**: LV 내의 블록, PE와 1:1 대응
+
+---
+
+#### **RAID 관련**
+
+* **RAID-5**: 최소 3개 디스크, 1개의 패리티
+* **RAID-6**: 최소 4개 디스크, 2개의 패리티
+* **RAID-3**: 패리티를 한 개 사용하는 디스크는 **RAID-3** ✅
+
+---
+
+#### **RPM 명령어**
+
+* **패키지 설치/제거**:
+
+  * `rpm -e sendmail`: `sendmail` 패키지 제거 ✅
+  * `rpm -i sendmail`: `sendmail` 패키지 설치
+  * `rpm -U sendmail`: 기존 패키지 업그레이드 (없으면 설치)
+  * `rpm -F sendmail`: 이전 버전이 설치된 경우 업그레이드
+  * `rpm -V sendmail`: 패키지 변조 여부 검사
+  * `rpm -f 파일명`: 지정된 파일이 포함된 패키지 목록 출력
+
+* **파일 압축 옵션**:
+
+  * `bz = j`, `xz = J`, `gz = z`, `compress = Z` ✅ (압축 효율성: `xz > bz2 > gz`)
+
+* **tar 명령어**:
+
+  * `# tar -C /usr/local/src -xvf backup.tar`: `backup.tar`를 `/usr/local/src`에 풀기
+
+---
+
+#### **소스 컴파일 순서**
+
+1. `configure`: 설정
+2. `make`: 파일 컴파일
+3. `make install`: 설치
+
+* **Makefile** ✅: `configure` 이후 생성되는 파일명
+* **`make clean`**: 컴파일한 내용 삭제
+* **`make distclean`**: automake 관련되지 않은 파일 삭제
+
+---
+
+#### **패키지 관리 도구**
+
+* **YUM 명령어**:
+
+  * `yum list`: 전체 패키지 정보 출력
+  * `yum history`: 설치, 삭제 등의 작업 이력 확인
+  * `yum grouplist`: 그룹별 정보 출력
+  * `yum groupinfo`: 그룹명과 관련된 패키지 정보 출력
+
+* **패키지 파일 형식**:
+
+  * **.deb** ✅: 데비안 계열 패키지 파일 형식
+  * **패키지 제거 명령어**: `apt-get remove` ✅
+
+* **기타 패키지 관리 도구**:
+
+  * **zypper**: SUSE 리눅스 패키지 관리 도구
+  * **YaST**: SUSE 패키지 관리 도구
+  * **rpm**: RedHat 계열 패키지 관리 도구
+  * **yum**: RedHat 계열의 YUM 패키지 관리 도구
+  * **dpkg**: 데비안 계열 패키지 관리 도구
+  * **apt-get**: 데비안 계열 패키지 관리 도구
+  * **pacman**: 아치 리눅스 패키지 관리 도구
+
+* **이중 온라인 X 오프라인 기반 패키지 관리 도구**:
+
+  * **rpm, YaST, dpkg** ✅
 
 ---
 
